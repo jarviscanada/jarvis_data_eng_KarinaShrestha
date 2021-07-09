@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_info (
 );
 
 CREATE TABLE IF NOT EXISTS PUBLIC.host_usage (
-    "teimstamp" TIMESTAMP NOT NULL,
+    "timestamp" TIMESTAMP NOT NULL,
     host_id SERIAL NOT NULL,
     memory_free INT NOT NULL,
     cpu_idle    INT NOT NULL,
