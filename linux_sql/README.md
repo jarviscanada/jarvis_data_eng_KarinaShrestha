@@ -42,7 +42,7 @@ List crontab jobs
 crontab -l
 ```
 
-# Implemenation
+# Implementation
 This project was implemented using Docker containers to provision a psql database instance that persists hardware and resource usage data, which is done through the **psql_docker** script. The **ddl.sql** script generates two tables, host_info and host_usage, where the data is stored and is used to perform data analytics. The two bash scripts **host_info.sh** and **host_usage.sh** collects data automatically and is installed on each server/node/host.
 
 ## Architecture
@@ -51,7 +51,7 @@ The architecture diagram for the Linux Monitory Agent program is shown below:
 <img src="https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/feature/readme/linux_sql/assets/architecture_dg.png" width="850" height="650">
 
 ## Scripts
-- **psql_docker.sh** is used to setup/start/stop a psql instance using docker
+- **psql_docker.sh** is used to set up/start/stop a psql instance using docker
   ```
   #create a psql container with the given username and password
   ./scripts/psql_docker.sh create db_username db_password
@@ -91,11 +91,11 @@ The architecture diagram for the Linux Monitory Agent program is shown below:
   * * * * * bash <your path>/linux_sql/scripts/host_usage.sh psql_host psql_port db_name psql_user psql_password &< /tmp/host_usage.log
   #exit vim by pressing Esc and type :wq
   ```
-- **queries.sql** answers a few business questions related to better managing the cluster and plan for future recourses.
+- **queries.sql** answers a few business questions related to better managing the cluster and planning for future recourses.
   The three queries are:
     - group the hosts by their CPU number and sort their memory size in descending order, within each CPU number group
-    - calculate the average used memory in percentage over a 5 minute interval for each host
-    - detect host failure when less than 3 data points are inserted within a 5 minute interval
+    - calculate the average used memory in percentage over a 5-minute interval for each host
+    - detect host failure when less than 3 data points are inserted within a 5-minute interval
 
   ```
    psql -h localhost -U postgres -d host_agent -f sql/queries.sql
