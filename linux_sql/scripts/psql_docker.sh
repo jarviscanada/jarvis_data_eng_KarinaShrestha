@@ -8,6 +8,11 @@ db_password=$3
 sudo systemctl status docker || sudo systemctl start docker
 container_created=$(docker container ls -a -f name=jrvs-psql | wc -l)
 
+function view_usage() {
+  echo "View the correct usage below:"
+  echo "./scripts/psql_docker.sh create db_username db_password"
+}
+
 case "$cmd" in
   "create" )
     if [ $container_created -eq 2 ]; then
@@ -16,8 +21,8 @@ case "$cmd" in
       exit 0
     fi
     if [ -z "$db_username" ] || [ -z "$db_password" ]; then
-      echo "No username and/or password passed as arguments. View the correct usage below:"
-      echo "./scripts/psql_docker.sh create db_username db_password"
+      echo "No username and/or password passed as arguments."
+      view_usage
       exit 1
     fi
     #No errors, create and run the container
@@ -30,8 +35,8 @@ case "$cmd" in
   "start" )
     #start command given but container is not created; start the container
     if [ $container_created -ne 2 ]; then
-      echo "Error: the jrvs-psql container does not exist. View correct usage:"
-      echo "./scripts/psql_docker.sh create db_username db_password"
+      echo "Error: the jrvs-psql container does not exist."
+      view_usage
       exit 1
     fi
     docker container start jrvs-psql
@@ -41,8 +46,8 @@ case "$cmd" in
   "stop" )
     #stop command given but container is not created; stop the container
     if [ $container_created -ne 2 ]; then
-      echo "Error: the jrvs-psql container does not exist. View correct usage:"
-      echo "./scripts/psql_docker.sh create db_username db_password"
+      echo "Error: the jrvs-psql container does not exist."
+      view_usage
       exit 1
     fi
     docker container stop jrvs-psql
@@ -50,6 +55,7 @@ case "$cmd" in
   ;;
   *)
     #default case (invalid command)
-    echo "Error: invalid command. View correct usage: ./scripts/psql_docker.sh create db_username db_password"
+    echo "Error: invalid command."
+    view_usage
     exit 1
   ;;

@@ -2,7 +2,7 @@
 \c host_agent
 
 CREATE TABLE IF NOT EXISTS PUBLIC.host_info (
-    id  SERIAL NOT NULL,
+    id  SERIAL PRIMARY KEY,
     hostname VARCHAR UNIQUE NOT NULL,
     cpu_number INT NOT NULL,
     cpu_architecture VARCHAR NOT NULL,
@@ -20,5 +20,8 @@ CREATE TABLE IF NOT EXISTS PUBLIC.host_usage (
     cpu_idle    INT NOT NULL,
     cpu_kernel  INT NOT NULL,
     disk_io     INT NOT NULL,
-    disk_available  INT NOT NULL
+    disk_available  INT NOT NULL,
+    CONSTRAINT fk_hostid
+        FOREIGN KEY(host_id)
+            REFERENCES host_info(id)
 );

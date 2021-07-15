@@ -20,15 +20,15 @@ cpu_time=$(vmstat -t)
 disk_info=$(vmstat -d)
 disk_space=$(df -BM /)
 
-timestamp=$(date + "%F %T")
+timestamp=$( date '+%F_%H:%M:%S' )
 memory_free=$(echo "$mem_info" | egrep "^MemFree:" | awk '{print $2}' | xargs)
 cpu_idle=$(echo "$cpu_time" | awk '{if (NR==3) print $15"%"}')
 cpu_kernel=$(echo "$cpu_time" | awk '{if (NR==3) print $14"%"}')
 disk_io=$(echo "$disk_info" | egrep "sda" | awk '{print $10}' | xargs)
 disk_available=$(echo "$disk_space" | egrep "/dev/sda2" | awk '{print $4}' | xargs)
 
-insert_stmt="INSERT INTO host_usage (timestamp, host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
-VALUES ('$timestamp', (SELECT id FROM host_info WHERE hostname='$hostname'),'$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available');"
+insert_stmt="INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES ('$timestamp', (SELECT id FROM host_info WHERE host_info.hostname='$hostname'),'$memory_free', '$cpu_idle', '$cpu_kernel', '$disk_io', '$disk_available');"
 
 psql -h $psql_host -U $psql_user -d $db_name -p $psql_port -c "$insert_stmt"
 exit $?

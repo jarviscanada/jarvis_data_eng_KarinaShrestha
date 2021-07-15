@@ -19,7 +19,19 @@ VALUES('2021-07-10 15:01:00.000', 1, 300040, 90, 4, 3, 2);
 INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
 VALUES('2021-07-10 15:02:00.000', 1, 301000, 90, 3, 3, 2);
 INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 100000, 90, 4, 3, 2);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
 VALUES('2021-07-10 15:03:00.000', 1, 200000, 90, 4, 3, 2);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 200000, 90, 4, 4, 2);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 200000, 90, 4, 3, 1);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 200000, 90, 4, 3, 1);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 200000, 80, 4, 3, 2);
+INSERT INTO host_usage ("timestamp", host_id, memory_free, cpu_idle, cpu_kernel, disk_io, disk_available)
+VALUES('2021-07-10 15:03:00.000', 1, 300000, 80, 4, 3, 2);
 
 --round current ts every 5 min
 CREATE FUNCTION round5(ts timestamp) RETURNS timestamp AS
