@@ -46,7 +46,7 @@ This project was implemented using Docker containers to provision a psql databas
 ## Architecture
 The architecture diagram for the Linux Monitory Agent program is shown below:
 
-<img src="https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/feature/readme/linux_sql/assets/architecture_dg.png" width="850" height="650">
+<img src="https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/release/linux_sql/assets/architecture_dg.png" width="850" height="650">
 
 ## Scripts
 - **psql_docker.sh** is used to set up/start/stop a psql instance using docker
