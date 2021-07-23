@@ -44,9 +44,9 @@ crontab -l
 This project was implemented using Docker containers to provision a psql database instance that persists hardware and resource usage data, which is done through the **psql_docker** script. The **ddl.sql** script generates two tables, host_info and host_usage, where the data is stored and is used to perform data analytics. The two bash scripts **host_info.sh** and **host_usage.sh** collects data automatically and is installed on each server/node/host.
 
 ## Architecture
-The architecture diagram for the Linux Monitory Agent program is shown below:
+The architecture diagram for the Linux Monitoring Agent program is shown below:
 
-<img src="https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/feature/readme/linux_sql/assets/architecture_dg.png" width="850" height="650">
+<img src="https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/release/linux_sql/assets/architecture_dg.png" width="850" height="650">
 
 ## Scripts
 - **psql_docker.sh** is used to set up/start/stop a psql instance using docker
