@@ -15,7 +15,7 @@ import org.junit.Before;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-class LambdaStreamExcImpTest {
+public class LambdaStreamExcImpTest {
   private LambdaStreamExcImp lse = new LambdaStreamExcImp();;
   int[] numArray = {1, 2, 3, 4, 5};
   String[] words = {"hello", "world", "!"};
