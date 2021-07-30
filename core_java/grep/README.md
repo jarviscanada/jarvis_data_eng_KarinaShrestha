@@ -23,7 +23,7 @@ The grep app can be launched by using one of the following two approaches:
    docker run localhostksh/grep {regex} {rootPath} {outFile}
     ```
 
-#Implementation
+# Implementation
 ## Pseudocode
 The ```process``` method is a high-level description of the implementation for the grep app.
 The pseudocode is shown below:
