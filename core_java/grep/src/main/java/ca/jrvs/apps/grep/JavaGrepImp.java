@@ -57,7 +57,7 @@ public class JavaGrepImp implements JavaGrep {
         lines.add(line);
         line = br.readLine();
       }
-    } catch (IOException ex) {
+    } catch (Exception ex) {
       logger.error("Cannot read lines from the given file", ex);
     }
     return lines;
@@ -123,7 +123,7 @@ public class JavaGrepImp implements JavaGrep {
     try {
       javaGrepImp.process();
     } catch (Exception ex) {
-      javaGrepImp.logger.error(ex.getMessage(), ex);
+      javaGrepImp.logger.error("An error occurred: Failed to process files", ex);
     }
   }
 }
