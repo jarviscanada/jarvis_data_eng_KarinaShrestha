@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: JDBCExecutor.java
+Class-Path: /home/centos/dev/jarvis_data_eng_karina/core_java/jdbc/src/m
+ ain/java/ca/jrvs/apps/jdbc/JDBCExecutor.java
+
