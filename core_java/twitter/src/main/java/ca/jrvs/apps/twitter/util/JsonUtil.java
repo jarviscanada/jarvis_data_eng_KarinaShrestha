@@ -40,8 +40,8 @@ public class JsonUtil {
   public static <T> T toObjectFromJson(String json, Class clazz) throws IOException {
     ObjectMapper m = new ObjectMapper();
 
-    m.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    m.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
+    //m.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    //m.enable(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
     return (T) m.readValue(json, clazz);
   }
 

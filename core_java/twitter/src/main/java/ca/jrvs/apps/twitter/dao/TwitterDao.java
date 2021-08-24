@@ -14,7 +14,9 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TwitterDao implements CrdDao<Tweet, String> {
 
   static final Logger logger = LoggerFactory.getLogger(TwitterDao.class);
@@ -60,8 +62,8 @@ public class TwitterDao implements CrdDao<Tweet, String> {
 
     try {
       uri = new URI(API_BASE_URI + POST_PATH + QUERY_SYM + "status" + EQUAL
-            + percentEscaper.escape(tweet.getText()) + AMPERSAND + "lat" + EQUAL + latitude
-            + AMPERSAND + "long" + EQUAL + longitude);
+            + percentEscaper.escape(tweet.getText()) + AMPERSAND + "long" + EQUAL + longitude
+            + AMPERSAND + "lat" + EQUAL + latitude);
       return uri;
     } catch (URISyntaxException e) {
       throw new IllegalArgumentException("Invalid input. Unable to generate URI");
