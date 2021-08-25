@@ -29,8 +29,9 @@ public class TwitterDaoIntTest {
 
   @Test
   public void create() {
-    String hashTag = "#abc";
-    String text = "@Karina testing " + hashTag + " " + System.currentTimeMillis();
+    String hashTag = "#xyz";
+    //String text = "@Karina testing " + hashTag + " " + System.currentTimeMillis();
+    String text = "Karina testing " + hashTag + " " + System.currentTimeMillis();
     Double lat = 1d;
     Double lng = -1d;
     Tweet postTweet = TweetUtil.buildTweet(text, lng, lat);
@@ -48,7 +49,7 @@ public class TwitterDaoIntTest {
   @Test
   public void findById() {
     String hashTag = "findById";
-    String text = "@Karina test2 " + hashTag + " " + System.currentTimeMillis();
+    String text = "Karina test2 " + hashTag + " " + System.currentTimeMillis();
     Double lat = 1d;
     Double lng = -1d;
     Tweet postTweet = TweetUtil.buildTweet(text, lng, lat);
@@ -65,7 +66,7 @@ public class TwitterDaoIntTest {
   @Test
   public void deleteById() {
     String hashTag = "deleting";
-    String text = "@Karina test3 " + hashTag + " " + System.currentTimeMillis();
+    String text = "Karina test3 " + hashTag + " " + System.currentTimeMillis();
     Double lat = 1d;
     Double lng = -1d;
     Tweet postTweet = TweetUtil.buildTweet(text, lng, lat);

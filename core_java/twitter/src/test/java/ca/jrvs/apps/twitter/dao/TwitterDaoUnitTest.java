@@ -75,7 +75,6 @@ public class TwitterDaoUnitTest {
     when(mockHelper.httpPost(isNotNull())).thenReturn(null);
     TwitterDao spyDao = Mockito.spy(tdao);
     //mock parseResponseBody
-    Tweet expectedTweet = JsonUtil.toObjectFromJson(tweetJsonStr, Tweet.class);
     doReturn(expectedTweet).when(spyDao).parseResponseBody(any(), anyInt());
     Tweet tweet = spyDao.create(TweetUtil.buildTweet(text, lng, lat));
     assertNotNull(tweet);

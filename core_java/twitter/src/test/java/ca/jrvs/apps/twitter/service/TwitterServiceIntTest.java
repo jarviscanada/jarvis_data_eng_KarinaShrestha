@@ -15,7 +15,6 @@ public class TwitterServiceIntTest {
 
   private TwitterDao tdao;
   private TwitterService service;
-  private Tweet tweet;
   private Tweet postedTweet;
   private Double lng;
   private Double lat;
@@ -35,16 +34,16 @@ public class TwitterServiceIntTest {
     this.service = new TwitterService(tdao);
     //build a tweet
     String hashTag = "#abcd";
-    text = "@Karina ServiceIntTest1x " + hashTag + " " + System.currentTimeMillis();
+    text = "Karina ServiceIntTest xyz " + hashTag + " " + System.currentTimeMillis();
     lat = 1d;
     lng = -1d;
-    Tweet postTweets = TweetUtil.buildTweet(text, lng, lat);
-    tweet = tdao.create(postTweets);
-    postedTweet = service.postTweet(tweet);
+
   }
 
   @Test
   public void postTweet() {
+    Tweet postTweets = TweetUtil.buildTweet(text, lng, lat);
+    postedTweet = service.postTweet(postTweets);
     //check if tweet is valid
     assertNotNull(postedTweet);
     assertEquals(lng, postedTweet.getCoordinates().getCoordinates().get(0));
@@ -54,6 +53,8 @@ public class TwitterServiceIntTest {
 
   @Test
   public void showTweet() {
+    Tweet postTweets = TweetUtil.buildTweet(text, lng, lat);
+    postedTweet = service.postTweet(postTweets);
     String[] testFields = {"created_at", "id", "id_str", "text", "favorited"};
     Tweet displayTweet = service.showTweet(postedTweet.getIdStr(), testFields);
 
@@ -61,20 +62,21 @@ public class TwitterServiceIntTest {
     assertEquals(lng, postedTweet.getCoordinates().getCoordinates().get(0));
     assertNull(displayTweet.getFavoriteCount());
     assertNull(displayTweet.getCoordinates());
-    assertNotNull(displayTweet.getText());
   }
 
   @Test
   public void deleteTweets() {
     String text = "to be deleted.. " + " " + System.currentTimeMillis();
-    Tweet postTweet2 = TweetUtil.buildTweet(text, lng, lat);
+    Tweet postTweet1 = TweetUtil.buildTweet(text, lng, lat);
+    Tweet postedTweet1 = service.postTweet(postTweet1);
+    Tweet postTweet2 = TweetUtil.buildTweet("to be deleted2. ", lng, lat);
     Tweet postedTweet2 = service.postTweet(postTweet2);
-    String[] ids = new String[] {postedTweet.getIdStr(), postedTweet2.getIdStr()};
+    String[] ids = new String[] {postedTweet1.getIdStr(), postedTweet2.getIdStr()};
 
     List<Tweet> delTweets = service.deleteTweets(ids);
     assertNotNull(delTweets);
     assertEquals(2, delTweets.size());
-    assertEquals(lng, postedTweet.getCoordinates().getCoordinates().get(0));
+    assertEquals(lng, postedTweet1.getCoordinates().getCoordinates().get(0));
     assertEquals(lng, postedTweet2.getCoordinates().getCoordinates().get(0));
   }
 }
