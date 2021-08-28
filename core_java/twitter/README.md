@@ -28,7 +28,7 @@ localhostksh/twitter post post|show|delete [options]
 
 # Design
 ## UML diagram
- ![UMLdiagram] (TwitterUMLDiagram.pmg)
+ !<img src = "https://github.com/jarviscanada/jarvis_data_eng_KarinaShrestha/blob/feature/twitter_README/core_java/twitter/assets/TwitterUMLDiagram.png">
 
 - ``TwitterCLIApp``: acts as the main method for the app. This class layer takes in command line arguments,
   parses it, utilizes ``TwitterHttpHelper`` to create an HTTP request, displays the output in JSON format.
