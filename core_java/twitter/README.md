@@ -28,7 +28,19 @@ localhostksh/twitter post post|show|delete [options]
 
 # Design
 ## UML diagram
-## explain each component(app/main, controller, service, DAO) (30-50 words each)
+ ![UMLdiagram] (TwitterUMLDiagram.pmg)
+
+- ``TwitterCLIApp``: acts as the main method for the app. This class layer takes in command line arguments,
+  parses it, utilizes ``TwitterHttpHelper`` to create an HTTP request, displays the output in JSON format.
+- ``TwitterHttpHelper``: manages the execution of HTTP requests based on a URI and authorizes it using Twitter secrets.
+- ``TwitterDAO``: is  the DAO layer class that handles the Twitter objects/models and HTTP calls. It also checks the responses
+  and connects to the Twitter REST API.
+- ``TwitterService``: simply handles the business logic of the application - to check whether the contents of the 
+  tweet are valid.
+- ``TwitterController``: parses and examines the format of the command-line arguments, calling the corresponding
+service layer to post|show|delete a tweet.
+
+
 
 ## Models
 A simplified version of the Twitter Tweet model was created using 5 of the following objects:
