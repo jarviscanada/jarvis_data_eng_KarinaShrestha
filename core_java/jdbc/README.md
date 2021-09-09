@@ -11,7 +11,7 @@ The entity-relationship diagram for all tables within the hplussport database is
 ![erdiagram](./assets/ERDiagram.png)
 
 ## Design Patterns
-The __Data Access Pattern (DAO)__ is one of the most common patterns when dealing with databases. It
+The __Data Access Object (DAO)__ pattern is one of the most common patterns when dealing with databases. It
 generally supports multiple tables and provides an abstraction layer between the raw JDBC code and the code in the application.
 
 The __Repository pattern__ only focuses on a single table access per class rather than accessing the entire database
