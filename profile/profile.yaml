@@ -68,12 +68,12 @@ professional_experience:
   #Write your Jarvis role as a professional experience rather than training.
   - title: "Data Engineer"
     company: "Jarvis"
-    duration: "July 2021 - present"
+    duration: "2021 - present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
     description: "Collaborated with a small team of data engineers in an Agile/Scrum development environment. Led and participated in daily scrum meetings during two-week sprints. Developed software projects using various technologies including Docker, Maven, PostgreSQL, and Git to adapt to current industry trends"
   - title: "Coding Instructor"
     company: "Alpha Coding"
-    duration: "September 2019 - present"
+    duration: "2019 - present"
     description: "Lead programming classes and teach students of all ages in Python, Robotics, Java, Tinkercad, Minecraft, MIT App Inventor and Scratch. Continually create and develop the curriculum, lesson plans/materials. Work with students to develop their own individual learning path and track their progress"
 
 #List of edcuation
